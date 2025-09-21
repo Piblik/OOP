@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OOPLR1.2.cpp">
+    <ClCompile Include="OOPLR1.1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Money.cpp">
+    <ClCompile Include="Product.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Money.h">
+    <ClInclude Include="Product.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

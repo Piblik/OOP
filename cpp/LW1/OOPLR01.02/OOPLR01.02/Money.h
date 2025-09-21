@@ -1,5 +1,7 @@
 #pragma once
 
+void inputInfo(int& s, int& f);
+
 class Money {
 private:
 	int first_ = 0;

@@ -1,0 +1,17 @@
+E:\Student\Rep\csharp\LW1.03\LW1.03\bin\Debug\net8.0-windows\LW1.03.exe
+E:\Student\Rep\csharp\LW1.03\LW1.03\bin\Debug\net8.0-windows\LW1.03.deps.json
+E:\Student\Rep\csharp\LW1.03\LW1.03\bin\Debug\net8.0-windows\LW1.03.runtimeconfig.json
+E:\Student\Rep\csharp\LW1.03\LW1.03\bin\Debug\net8.0-windows\LW1.03.dll
+E:\Student\Rep\csharp\LW1.03\LW1.03\bin\Debug\net8.0-windows\LW1.03.pdb
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.csproj.GenerateResource.cache
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.GeneratedMSBuildEditorConfig.editorconfig
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.AssemblyInfoInputs.cache
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.AssemblyInfo.cs
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.csproj.CoreCompileInputs.cache
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.sourcelink.json
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.dll
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\refint\LW1.03.dll
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.pdb
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1.03.genruntimeconfig.cache
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\ref\LW1.03.dll
+E:\Student\Rep\csharp\LW1.03\LW1.03\obj\Debug\net8.0-windows\LW1._03.LW1.resources

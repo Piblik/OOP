@@ -5,9 +5,9 @@
 Product::Product(std::string title, std::string cypher, int count)
 
 {
-	set_title(title_);
-	set_cypher(cypher_);
-	set_count(count_);
+	set_title(title);
+	set_cypher(cypher);
+	set_count(count);
 }
 
 void Product::set_title(std::string title) {
@@ -32,5 +32,5 @@ void Product::print() const {
 	std::cout << "Product{title=\"" << title_
 		<< "\", cypher=\"" << cypher_
 		<< "\", count=" << count_
-		<< "\n";
+		<< "}" << std::endl;
 }

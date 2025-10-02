@@ -1,0 +1,26 @@
+[
+  {
+    "Type": "CPU",
+    "Brand": "Intel",
+    "Model": "i7 14700k",
+    "ReleaseYear": "2023",
+    "Price": "300",
+    "AdditionalInfo": "-"
+  },
+  {
+    "Type": "GPU",
+    "Brand": "Nvidia",
+    "Model": "RTX 4080",
+    "ReleaseYear": "2024",
+    "Price": "1000",
+    "AdditionalInfo": "-"
+  },
+  {
+    "Type": "Tower",
+    "Brand": "Corsair",
+    "Model": "2500X",
+    "ReleaseYear": "2025",
+    "Price": "300",
+    "AdditionalInfo": "Black"
+  }
+]

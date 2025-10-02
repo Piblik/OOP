@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             cmbSelectType = new ComboBox();
             txtBrand = new TextBox();
             txtModel = new TextBox();
@@ -47,8 +48,17 @@
             clnReleaseYear = new DataGridViewTextBoxColumn();
             clnPrice = new DataGridViewTextBoxColumn();
             clnAdditionalInfo = new DataGridViewTextBoxColumn();
+            cmsDgv1 = new ContextMenuStrip(components);
+            deleteToolStripMenuItem = new ToolStripMenuItem();
+            clearToolStripMenuItem1 = new ToolStripMenuItem();
             btnEnter = new Button();
+            menuStrip1 = new MenuStrip();
+            saveTSMI = new ToolStripMenuItem();
+            loadTSMI = new ToolStripMenuItem();
+            clearToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
+            cmsDgv1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // cmbSelectType
@@ -56,7 +66,7 @@
             cmbSelectType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbSelectType.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbSelectType.FormattingEnabled = true;
-            cmbSelectType.Location = new Point(12, 12);
+            cmbSelectType.Location = new Point(12, 24);
             cmbSelectType.Name = "cmbSelectType";
             cmbSelectType.Size = new Size(121, 23);
             cmbSelectType.TabIndex = 0;
@@ -64,7 +74,7 @@
             // 
             // txtBrand
             // 
-            txtBrand.Location = new Point(12, 41);
+            txtBrand.Location = new Point(12, 53);
             txtBrand.Name = "txtBrand";
             txtBrand.Size = new Size(100, 23);
             txtBrand.TabIndex = 1;
@@ -72,7 +82,7 @@
             // 
             // txtModel
             // 
-            txtModel.Location = new Point(12, 70);
+            txtModel.Location = new Point(12, 82);
             txtModel.Name = "txtModel";
             txtModel.Size = new Size(100, 23);
             txtModel.TabIndex = 2;
@@ -80,7 +90,7 @@
             // 
             // txtRelYear
             // 
-            txtRelYear.Location = new Point(12, 99);
+            txtRelYear.Location = new Point(12, 111);
             txtRelYear.Name = "txtRelYear";
             txtRelYear.Size = new Size(100, 23);
             txtRelYear.TabIndex = 3;
@@ -88,7 +98,7 @@
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(12, 128);
+            txtPrice.Location = new Point(12, 140);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(100, 23);
             txtPrice.TabIndex = 4;
@@ -96,7 +106,7 @@
             // 
             // txtAddInfo
             // 
-            txtAddInfo.Location = new Point(12, 157);
+            txtAddInfo.Location = new Point(12, 169);
             txtAddInfo.Name = "txtAddInfo";
             txtAddInfo.Size = new Size(100, 23);
             txtAddInfo.TabIndex = 5;
@@ -105,7 +115,7 @@
             // lblType
             // 
             lblType.AutoSize = true;
-            lblType.Location = new Point(139, 15);
+            lblType.Location = new Point(139, 27);
             lblType.Name = "lblType";
             lblType.Size = new Size(32, 15);
             lblType.TabIndex = 6;
@@ -114,7 +124,7 @@
             // lblBrand
             // 
             lblBrand.AutoSize = true;
-            lblBrand.Location = new Point(118, 44);
+            lblBrand.Location = new Point(118, 56);
             lblBrand.Name = "lblBrand";
             lblBrand.Size = new Size(38, 15);
             lblBrand.TabIndex = 7;
@@ -123,7 +133,7 @@
             // lblModel
             // 
             lblModel.AutoSize = true;
-            lblModel.Location = new Point(118, 73);
+            lblModel.Location = new Point(118, 85);
             lblModel.Name = "lblModel";
             lblModel.Size = new Size(41, 15);
             lblModel.TabIndex = 8;
@@ -132,7 +142,7 @@
             // lblReleaseYear
             // 
             lblReleaseYear.AutoSize = true;
-            lblReleaseYear.Location = new Point(118, 102);
+            lblReleaseYear.Location = new Point(118, 114);
             lblReleaseYear.Name = "lblReleaseYear";
             lblReleaseYear.Size = new Size(71, 15);
             lblReleaseYear.TabIndex = 9;
@@ -141,7 +151,7 @@
             // lblPrice
             // 
             lblPrice.AutoSize = true;
-            lblPrice.Location = new Point(118, 131);
+            lblPrice.Location = new Point(118, 143);
             lblPrice.Name = "lblPrice";
             lblPrice.Size = new Size(33, 15);
             lblPrice.TabIndex = 10;
@@ -150,7 +160,7 @@
             // lblAddInfo
             // 
             lblAddInfo.AutoSize = true;
-            lblAddInfo.Location = new Point(118, 160);
+            lblAddInfo.Location = new Point(118, 172);
             lblAddInfo.Name = "lblAddInfo";
             lblAddInfo.Size = new Size(86, 15);
             lblAddInfo.TabIndex = 11;
@@ -163,10 +173,12 @@
             dgv1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv1.Columns.AddRange(new DataGridViewColumn[] { clnType, clnBrand, clnModel, clnReleaseYear, clnPrice, clnAdditionalInfo });
-            dgv1.Location = new Point(325, 12);
+            dgv1.ContextMenuStrip = cmsDgv1;
+            dgv1.Location = new Point(325, 27);
             dgv1.Name = "dgv1";
             dgv1.Size = new Size(649, 150);
             dgv1.TabIndex = 12;
+            dgv1.MouseDown += dgv1_MouseDown;
             // 
             // clnType
             // 
@@ -210,10 +222,30 @@
             clnAdditionalInfo.ReadOnly = true;
             clnAdditionalInfo.Width = 111;
             // 
+            // cmsDgv1
+            // 
+            cmsDgv1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, clearToolStripMenuItem1 });
+            cmsDgv1.Name = "contextMenuStrip1";
+            cmsDgv1.Size = new Size(108, 48);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(180, 22);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
+            // clearToolStripMenuItem1
+            // 
+            clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
+            clearToolStripMenuItem1.Size = new Size(180, 22);
+            clearToolStripMenuItem1.Text = "Clear";
+            clearToolStripMenuItem1.Click += clearToolStripMenuItem1_Click;
+            // 
             // btnEnter
             // 
             btnEnter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEnter.Location = new Point(23, 186);
+            btnEnter.Location = new Point(23, 213);
             btnEnter.Name = "btnEnter";
             btnEnter.Size = new Size(75, 23);
             btnEnter.TabIndex = 13;
@@ -221,11 +253,41 @@
             btnEnter.UseVisualStyleBackColor = true;
             btnEnter.Click += btnEnter_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { saveTSMI, loadTSMI, clearToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(986, 24);
+            menuStrip1.TabIndex = 14;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // saveTSMI
+            // 
+            saveTSMI.Name = "saveTSMI";
+            saveTSMI.Size = new Size(43, 20);
+            saveTSMI.Text = "Save";
+            saveTSMI.Click += saveTSMI_Click;
+            // 
+            // loadTSMI
+            // 
+            loadTSMI.Name = "loadTSMI";
+            loadTSMI.Size = new Size(45, 20);
+            loadTSMI.Text = "Load";
+            loadTSMI.Click += loadTSMI_Click;
+            // 
+            // clearToolStripMenuItem
+            // 
+            clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            clearToolStripMenuItem.Size = new Size(46, 20);
+            clearToolStripMenuItem.Text = "Clear";
+            clearToolStripMenuItem.Click += clearToolStripMenuItem_Click;
+            // 
             // LW1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(986, 216);
+            ClientSize = new Size(986, 243);
             Controls.Add(btnEnter);
             Controls.Add(dgv1);
             Controls.Add(lblAddInfo);
@@ -240,11 +302,16 @@
             Controls.Add(txtModel);
             Controls.Add(txtBrand);
             Controls.Add(cmbSelectType);
+            Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "LW1";
             Text = "LW1";
             ((System.ComponentModel.ISupportInitialize)dgv1).EndInit();
+            cmsDgv1.ResumeLayout(false);
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -271,5 +338,12 @@
         private DataGridViewTextBoxColumn clnPrice;
         private DataGridViewTextBoxColumn clnAdditionalInfo;
         private Button btnEnter;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem saveTSMI;
+        private ToolStripMenuItem loadTSMI;
+        private ContextMenuStrip cmsDgv1;
+        private ToolStripMenuItem deleteToolStripMenuItem;
+        private ToolStripMenuItem clearToolStripMenuItem;
+        private ToolStripMenuItem clearToolStripMenuItem1;
     }
 }

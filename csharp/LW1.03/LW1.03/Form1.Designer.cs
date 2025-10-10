@@ -51,11 +51,15 @@
             cmsDgv1 = new ContextMenuStrip(components);
             deleteToolStripMenuItem = new ToolStripMenuItem();
             clearToolStripMenuItem1 = new ToolStripMenuItem();
+            addToComparisonToolStripMenuItem = new ToolStripMenuItem();
             btnEnter = new Button();
             menuStrip1 = new MenuStrip();
             saveTSMI = new ToolStripMenuItem();
             loadTSMI = new ToolStripMenuItem();
             clearToolStripMenuItem = new ToolStripMenuItem();
+            comparisonToolStripMenuItem = new ToolStripMenuItem();
+            tSMIOpenComp = new ToolStripMenuItem();
+            tSMIClearComp = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
             cmsDgv1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -224,23 +228,30 @@
             // 
             // cmsDgv1
             // 
-            cmsDgv1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, clearToolStripMenuItem1 });
+            cmsDgv1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, clearToolStripMenuItem1, addToComparisonToolStripMenuItem });
             cmsDgv1.Name = "contextMenuStrip1";
-            cmsDgv1.Size = new Size(108, 48);
+            cmsDgv1.Size = new Size(177, 70);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(180, 22);
+            deleteToolStripMenuItem.Size = new Size(176, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // clearToolStripMenuItem1
             // 
             clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
-            clearToolStripMenuItem1.Size = new Size(180, 22);
+            clearToolStripMenuItem1.Size = new Size(176, 22);
             clearToolStripMenuItem1.Text = "Clear";
             clearToolStripMenuItem1.Click += clearToolStripMenuItem1_Click;
+            // 
+            // addToComparisonToolStripMenuItem
+            // 
+            addToComparisonToolStripMenuItem.Name = "addToComparisonToolStripMenuItem";
+            addToComparisonToolStripMenuItem.Size = new Size(176, 22);
+            addToComparisonToolStripMenuItem.Text = "Add to comparison";
+            addToComparisonToolStripMenuItem.Click += addToComparisonToolStripMenuItem_Click;
             // 
             // btnEnter
             // 
@@ -255,7 +266,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { saveTSMI, loadTSMI, clearToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { saveTSMI, loadTSMI, clearToolStripMenuItem, comparisonToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(986, 24);
@@ -282,6 +293,27 @@
             clearToolStripMenuItem.Size = new Size(46, 20);
             clearToolStripMenuItem.Text = "Clear";
             clearToolStripMenuItem.Click += clearToolStripMenuItem_Click;
+            // 
+            // comparisonToolStripMenuItem
+            // 
+            comparisonToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tSMIOpenComp, tSMIClearComp });
+            comparisonToolStripMenuItem.Name = "comparisonToolStripMenuItem";
+            comparisonToolStripMenuItem.Size = new Size(84, 20);
+            comparisonToolStripMenuItem.Text = "Comparison";
+            // 
+            // tSMIOpenComp
+            // 
+            tSMIOpenComp.Name = "tSMIOpenComp";
+            tSMIOpenComp.Size = new Size(180, 22);
+            tSMIOpenComp.Text = "Open Comparison";
+            tSMIOpenComp.Click += tSMIOpenComp_Click;
+            // 
+            // tSMIClearComp
+            // 
+            tSMIClearComp.Name = "tSMIClearComp";
+            tSMIClearComp.Size = new Size(180, 22);
+            tSMIClearComp.Text = "Clear Comparison";
+            tSMIClearComp.Click += tSMIClear_Click;
             // 
             // LW1
             // 
@@ -345,5 +377,9 @@
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem clearToolStripMenuItem;
         private ToolStripMenuItem clearToolStripMenuItem1;
+        private ToolStripMenuItem addToComparisonToolStripMenuItem;
+        private ToolStripMenuItem comparisonToolStripMenuItem;
+        private ToolStripMenuItem tSMIOpenComp;
+        private ToolStripMenuItem tSMIClearComp;
     }
 }

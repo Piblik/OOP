@@ -29,7 +29,14 @@ namespace LW1._03
 
         public string[] ToRow()
         {
-            return new string[] { Type, Brand, Model, ReleaseYear, Price, AdditionalInfo }; 
+            return new string[] { Type, Brand, Model, ReleaseYear, Price, AdditionalInfo };
         }
+
+        public static implicit operator string[](ComputerPart part)
+        {
+            return part.ToRow();
+        }
+
+        
     }
 }

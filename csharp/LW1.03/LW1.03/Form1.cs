@@ -6,6 +6,7 @@ namespace LW1._03
     public partial class LW1 : Form
     {
         private List<ComputerPart> parts = new List<ComputerPart>();
+        private List<ComputerPart> compareList = new List<ComputerPart>();
 
         public LW1()
         {
@@ -34,7 +35,7 @@ namespace LW1._03
             );
 
             parts.Add(part);
-            dgv1.Rows.Add(part.ToRow());
+            dgv1.Rows.Add(part);
 
             cmbSelectType.SelectedIndex = -1;
             txtBrand.Clear();
@@ -95,7 +96,7 @@ namespace LW1._03
                         dgv1.Rows.Clear();
                         foreach (var part in parts)
                         {
-                            dgv1.Rows.Add(part.ToRow());
+                            dgv1.Rows.Add(part);
                         }
 
                         MessageBox.Show("Data uploaded successfully!", "Uploading", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -116,6 +117,25 @@ namespace LW1._03
 
             parts.Clear();
         }
+
+        private void tSMIOpenComp_Click(object sender, EventArgs e)
+        {
+            if (compareList.Count < 2)
+            {
+                MessageBox.Show("You must select at least 2 items for comparison.");
+                return;
+            }
+
+            ComparisonForm form = new ComparisonForm(compareList);
+            form.Show();
+        }
+
+        private void tSMIClear_Click(object sender, EventArgs e)
+        {
+            compareList.Clear();
+            MessageBox.Show("Comparison list cleared.");
+        }
+
 
         //==================-MenuStrip-==================\\
 
@@ -150,6 +170,28 @@ namespace LW1._03
                     dgv1.ClearSelection();
                     dgv1.Rows[hitTest.RowIndex].Selected = true;
                     dgv1.CurrentCell = dgv1.Rows[hitTest.RowIndex].Cells[0];
+                }
+            }
+        }
+
+        private void addToComparisonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgv1.CurrentRow != null && dgv1.CurrentRow.Index >= 0)
+            {
+                int index = dgv1.CurrentRow.Index;
+                if (index < parts.Count)
+                {
+                    var partToCompare = parts[index];
+
+                    if (!compareList.Contains(partToCompare))
+                    {
+                        compareList.Add(partToCompare);
+                        MessageBox.Show($"{partToCompare.Model} added to comparison!", "Comparison");
+                    }
+                    else
+                    {
+                        MessageBox.Show("This item is already in the comparison list.");
+                    }
                 }
             }
         }

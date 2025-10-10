@@ -27,6 +27,16 @@ namespace LW1._03
             AdditionalInfo = additionalIndo;
         }
 
+        public static void SortByPrice(List<ComputerPart> parts, bool ascending = true)
+        {
+            parts.Sort((x, y) =>
+            {
+                if (x > y) return ascending ? -1 : 1;
+                if (x < y) return ascending ? 1 : -1;
+                return 0;
+            });
+        }
+
         public string[] ToRow()
         {
             return new string[] { Type, Brand, Model, ReleaseYear, Price, AdditionalInfo };
@@ -37,6 +47,14 @@ namespace LW1._03
             return part.ToRow();
         }
 
-        
+        public static bool operator >(ComputerPart a, ComputerPart b)
+        {
+            return decimal.Parse(a.Price) > decimal.Parse(b.Price);
+        }
+
+        public static bool operator <(ComputerPart a, ComputerPart b)
+        {
+            return decimal.Parse(a.Price) < decimal.Parse(b.Price);
+        }
     }
 }

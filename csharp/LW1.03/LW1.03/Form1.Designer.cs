@@ -60,6 +60,7 @@
             comparisonToolStripMenuItem = new ToolStripMenuItem();
             tSMIOpenComp = new ToolStripMenuItem();
             tSMIClearComp = new ToolStripMenuItem();
+            sortByPriceToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
             cmsDgv1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -228,28 +229,28 @@
             // 
             // cmsDgv1
             // 
-            cmsDgv1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, clearToolStripMenuItem1, addToComparisonToolStripMenuItem });
+            cmsDgv1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, clearToolStripMenuItem1, addToComparisonToolStripMenuItem, sortByPriceToolStripMenuItem });
             cmsDgv1.Name = "contextMenuStrip1";
-            cmsDgv1.Size = new Size(177, 70);
+            cmsDgv1.Size = new Size(181, 114);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(176, 22);
+            deleteToolStripMenuItem.Size = new Size(180, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // clearToolStripMenuItem1
             // 
             clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
-            clearToolStripMenuItem1.Size = new Size(176, 22);
+            clearToolStripMenuItem1.Size = new Size(180, 22);
             clearToolStripMenuItem1.Text = "Clear";
             clearToolStripMenuItem1.Click += clearToolStripMenuItem1_Click;
             // 
             // addToComparisonToolStripMenuItem
             // 
             addToComparisonToolStripMenuItem.Name = "addToComparisonToolStripMenuItem";
-            addToComparisonToolStripMenuItem.Size = new Size(176, 22);
+            addToComparisonToolStripMenuItem.Size = new Size(180, 22);
             addToComparisonToolStripMenuItem.Text = "Add to comparison";
             addToComparisonToolStripMenuItem.Click += addToComparisonToolStripMenuItem_Click;
             // 
@@ -304,16 +305,23 @@
             // tSMIOpenComp
             // 
             tSMIOpenComp.Name = "tSMIOpenComp";
-            tSMIOpenComp.Size = new Size(180, 22);
+            tSMIOpenComp.Size = new Size(171, 22);
             tSMIOpenComp.Text = "Open Comparison";
             tSMIOpenComp.Click += tSMIOpenComp_Click;
             // 
             // tSMIClearComp
             // 
             tSMIClearComp.Name = "tSMIClearComp";
-            tSMIClearComp.Size = new Size(180, 22);
+            tSMIClearComp.Size = new Size(171, 22);
             tSMIClearComp.Text = "Clear Comparison";
             tSMIClearComp.Click += tSMIClear_Click;
+            // 
+            // sortByPriceToolStripMenuItem
+            // 
+            sortByPriceToolStripMenuItem.Name = "sortByPriceToolStripMenuItem";
+            sortByPriceToolStripMenuItem.Size = new Size(180, 22);
+            sortByPriceToolStripMenuItem.Text = "Sort by price";
+            sortByPriceToolStripMenuItem.Click += sortByPriceToolStripMenuItem_Click;
             // 
             // LW1
             // 
@@ -381,5 +389,6 @@
         private ToolStripMenuItem comparisonToolStripMenuItem;
         private ToolStripMenuItem tSMIOpenComp;
         private ToolStripMenuItem tSMIClearComp;
+        private ToolStripMenuItem sortByPriceToolStripMenuItem;
     }
 }

@@ -196,6 +196,16 @@ namespace LW1._03
             }
         }
 
+        private void sortByPriceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ComputerPart.SortByPrice(parts, ascending: true);
+            dgv1.Rows.Clear();
+            foreach(var part in parts)
+            {
+                dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
+            }
+        }
+
         //==================-ContextMenuStrip-==================\\
 
     }

@@ -56,5 +56,15 @@ namespace LW1._03
         {
             return decimal.Parse(a.Price) < decimal.Parse(b.Price);
         }
+
+        public static bool operator >=(ComputerPart a, ComputerPart b)
+        {
+            return int.Parse(a.ReleaseYear) >= int.Parse(b.ReleaseYear);
+        }
+
+        public static bool operator <=(ComputerPart a, ComputerPart b)
+        {
+            return int.Parse(a.ReleaseYear) <= int.Parse(b.ReleaseYear);
+        }
     }
 }

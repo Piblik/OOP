@@ -136,6 +136,30 @@ namespace LW1._03
             MessageBox.Show("Comparison list cleared.");
         }
 
+        private void sortByPriceToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ComputerPart.SortByPrice(parts, ascending: true);
+            dgv1.Rows.Clear();
+            foreach (var part in parts)
+            {
+                dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
+            }
+        }
+        private void sortByYearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            parts.Sort((x, y) =>
+            {
+                if (x >= y) return -1;
+                if (x <= y) return 1;
+                return 0;
+            });
+            dgv1.Rows.Clear();
+            foreach (var part in parts)
+            {
+                dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
+            }
+        }
+
 
         //==================-MenuStrip-==================\\
 
@@ -200,13 +224,29 @@ namespace LW1._03
         {
             ComputerPart.SortByPrice(parts, ascending: true);
             dgv1.Rows.Clear();
-            foreach(var part in parts)
+            foreach (var part in parts)
+            {
+                dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
+            }
+        }
+
+        private void sortByYearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            parts.Sort((x, y) =>
+            {
+                if (x >= y) return -1;
+                if (x <= y) return 1;
+                return 0;
+            });
+            dgv1.Rows.Clear();
+            foreach (var part in parts)
             {
                 dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
             }
         }
 
         //==================-ContextMenuStrip-==================\\
-
+        //==================+Methods+==================\\
+        //==================-Methods-==================\\
     }
 }

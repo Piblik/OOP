@@ -53,6 +53,8 @@
             clearToolStripMenuItem1 = new ToolStripMenuItem();
             addToComparisonToolStripMenuItem = new ToolStripMenuItem();
             sortByPriceToolStripMenuItem = new ToolStripMenuItem();
+            sortByYearToolStripMenuItem1 = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
             btnEnter = new Button();
             menuStrip1 = new MenuStrip();
             saveTSMI = new ToolStripMenuItem();
@@ -64,7 +66,9 @@
             comparisonToolStripMenuItem = new ToolStripMenuItem();
             tSMIOpenComp = new ToolStripMenuItem();
             tSMIClearComp = new ToolStripMenuItem();
-            sortByYearToolStripMenuItem1 = new ToolStripMenuItem();
+            txtSearchLine = new TextBox();
+            btnSearch = new Button();
+            btnShowAll = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
             cmsDgv1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -183,7 +187,7 @@
             dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv1.Columns.AddRange(new DataGridViewColumn[] { clnType, clnBrand, clnModel, clnReleaseYear, clnPrice, clnAdditionalInfo });
             dgv1.ContextMenuStrip = cmsDgv1;
-            dgv1.Location = new Point(325, 27);
+            dgv1.Location = new Point(325, 81);
             dgv1.Name = "dgv1";
             dgv1.Size = new Size(649, 150);
             dgv1.TabIndex = 12;
@@ -233,37 +237,51 @@
             // 
             // cmsDgv1
             // 
-            cmsDgv1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, clearToolStripMenuItem1, addToComparisonToolStripMenuItem, sortByPriceToolStripMenuItem, sortByYearToolStripMenuItem1 });
+            cmsDgv1.Items.AddRange(new ToolStripItem[] { deleteToolStripMenuItem, clearToolStripMenuItem1, addToComparisonToolStripMenuItem, sortByPriceToolStripMenuItem, sortByYearToolStripMenuItem1, editToolStripMenuItem });
             cmsDgv1.Name = "contextMenuStrip1";
-            cmsDgv1.Size = new Size(181, 136);
+            cmsDgv1.Size = new Size(177, 136);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(180, 22);
+            deleteToolStripMenuItem.Size = new Size(176, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
             // clearToolStripMenuItem1
             // 
             clearToolStripMenuItem1.Name = "clearToolStripMenuItem1";
-            clearToolStripMenuItem1.Size = new Size(180, 22);
+            clearToolStripMenuItem1.Size = new Size(176, 22);
             clearToolStripMenuItem1.Text = "Clear";
             clearToolStripMenuItem1.Click += clearToolStripMenuItem1_Click;
             // 
             // addToComparisonToolStripMenuItem
             // 
             addToComparisonToolStripMenuItem.Name = "addToComparisonToolStripMenuItem";
-            addToComparisonToolStripMenuItem.Size = new Size(180, 22);
+            addToComparisonToolStripMenuItem.Size = new Size(176, 22);
             addToComparisonToolStripMenuItem.Text = "Add to comparison";
             addToComparisonToolStripMenuItem.Click += addToComparisonToolStripMenuItem_Click;
             // 
             // sortByPriceToolStripMenuItem
             // 
             sortByPriceToolStripMenuItem.Name = "sortByPriceToolStripMenuItem";
-            sortByPriceToolStripMenuItem.Size = new Size(180, 22);
+            sortByPriceToolStripMenuItem.Size = new Size(176, 22);
             sortByPriceToolStripMenuItem.Text = "Sort by price";
             sortByPriceToolStripMenuItem.Click += sortByPriceToolStripMenuItem_Click;
+            // 
+            // sortByYearToolStripMenuItem1
+            // 
+            sortByYearToolStripMenuItem1.Name = "sortByYearToolStripMenuItem1";
+            sortByYearToolStripMenuItem1.Size = new Size(176, 22);
+            sortByYearToolStripMenuItem1.Text = "Sort by year";
+            sortByYearToolStripMenuItem1.Click += sortByYearToolStripMenuItem1_Click;
+            // 
+            // editToolStripMenuItem
+            // 
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(176, 22);
+            editToolStripMenuItem.Text = "Edit";
+            editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
             // btnEnter
             // 
@@ -316,14 +334,14 @@
             // sortByPriceToolStripMenuItem1
             // 
             sortByPriceToolStripMenuItem1.Name = "sortByPriceToolStripMenuItem1";
-            sortByPriceToolStripMenuItem1.Size = new Size(180, 22);
+            sortByPriceToolStripMenuItem1.Size = new Size(140, 22);
             sortByPriceToolStripMenuItem1.Text = "Sort by Price";
             sortByPriceToolStripMenuItem1.Click += sortByPriceToolStripMenuItem1_Click;
             // 
             // sortByYearToolStripMenuItem
             // 
             sortByYearToolStripMenuItem.Name = "sortByYearToolStripMenuItem";
-            sortByYearToolStripMenuItem.Size = new Size(180, 22);
+            sortByYearToolStripMenuItem.Size = new Size(140, 22);
             sortByYearToolStripMenuItem.Text = "Sort by Year";
             sortByYearToolStripMenuItem.Click += sortByYearToolStripMenuItem_Click;
             // 
@@ -348,18 +366,41 @@
             tSMIClearComp.Text = "Clear Comparison";
             tSMIClearComp.Click += tSMIClear_Click;
             // 
-            // sortByYearToolStripMenuItem1
+            // txtSearchLine
             // 
-            sortByYearToolStripMenuItem1.Name = "sortByYearToolStripMenuItem1";
-            sortByYearToolStripMenuItem1.Size = new Size(180, 22);
-            sortByYearToolStripMenuItem1.Text = "Sort by year";
-            sortByYearToolStripMenuItem1.Click += sortByYearToolStripMenuItem1_Click;
+            txtSearchLine.Location = new Point(325, 27);
+            txtSearchLine.Name = "txtSearchLine";
+            txtSearchLine.Size = new Size(649, 23);
+            txtSearchLine.TabIndex = 15;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(818, 53);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(75, 23);
+            btnSearch.TabIndex = 16;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // btnShowAll
+            // 
+            btnShowAll.Location = new Point(899, 53);
+            btnShowAll.Name = "btnShowAll";
+            btnShowAll.Size = new Size(75, 23);
+            btnShowAll.TabIndex = 17;
+            btnShowAll.Text = "Show all";
+            btnShowAll.UseVisualStyleBackColor = true;
+            btnShowAll.Click += btnShowAll_Click;
             // 
             // LW1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(986, 243);
+            Controls.Add(btnShowAll);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearchLine);
             Controls.Add(btnEnter);
             Controls.Add(dgv1);
             Controls.Add(lblAddInfo);
@@ -426,5 +467,9 @@
         private ToolStripMenuItem sortByPriceToolStripMenuItem1;
         private ToolStripMenuItem sortByYearToolStripMenuItem;
         private ToolStripMenuItem sortByYearToolStripMenuItem1;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private TextBox txtSearchLine;
+        private Button btnSearch;
+        private Button btnShowAll;
     }
 }

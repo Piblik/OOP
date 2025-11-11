@@ -245,8 +245,66 @@ namespace LW1._03
             }
         }
 
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgv1.CurrentRow != null)
+            {
+                int index = dgv1.CurrentRow.Index;
+                if (index < parts.Count)
+                {
+                    var part = parts[index];
+                    txtBrand.Text = part.Brand;
+                    txtModel.Text = part.Model;
+                    txtRelYear.Text = part.ReleaseYear;
+                    txtPrice.Text = part.Price;
+                    txtAddInfo.Text = part.AdditionalInfo;
+                    cmbSelectType.Text = part.Type;
+
+                    parts.RemoveAt(index);
+                    dgv1.Rows.RemoveAt(index);
+                }
+            }
+        }
+
         //==================-ContextMenuStrip-==================\\
         //==================+Methods+==================\\
         //==================-Methods-==================\\
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearchLine.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                MessageBox.Show("Please enter a brand to search.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var foundParts = parts
+                .Where(p => p.Brand.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            dgv1.Rows.Clear();
+
+            if (foundParts.Count == 0)
+            {
+                MessageBox.Show("No matches found.", "Search result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            foreach (var part in foundParts)
+            {
+                dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
+            }
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            dgv1.Rows.Clear();
+            foreach(var part in parts)
+            {
+                dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
+            }
+        }
     }
 }

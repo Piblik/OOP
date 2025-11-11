@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LW1._03;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,3 +69,27 @@ namespace LW1._03
         }
     }
 }
+
+public class CPU : ComputerPart
+{
+    public int Cores { get; set; }
+    public float FrequencyGHz { get; set; }
+
+    public CPU() { }
+
+    public CPU(
+        string type,
+        string brand,
+        string model,
+        string releaseYear,
+        string price,
+        string additionalInfo,
+        int cores,
+        float frequencyGHz
+        ) : base(type, brand, model, releaseYear, price, additionalInfo)
+    {
+        Cores = cores;
+        FrequencyGHz = frequencyGHz;
+    }
+}
+

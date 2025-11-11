@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Text.Json;
 
 namespace LW1._03
@@ -25,25 +25,49 @@ namespace LW1._03
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            var part = new ComputerPart(
-                cmbSelectType.Text,
-                txtBrand.Text,
-                txtModel.Text,
-                txtRelYear.Text,
-                txtPrice.Text,
-                txtAddInfo.Text
-            );
+            if (cmbSelectType.Text == "CPU")
+            {
+                CPUForm cpuForm = new CPUForm();
 
-            parts.Add(part);
-            dgv1.Rows.Add(part);
+                if (cpuForm.ShowDialog() == DialogResult.OK)
+                {
+                    var cpu = new CPU(
+                        cmbSelectType.Text,
+                        txtBrand.Text,
+                        txtModel.Text,
+                        txtRelYear.Text,
+                        txtPrice.Text,
+                        txtAddInfo.Text,
+                        cpuForm.Cores,
+                        cpuForm.FrequencyGHz
+                    );
 
+                    parts.Add(cpu);
+                    dgv1.Rows.Add(cpu.Type, cpu.Brand, cpu.Model, cpu.ReleaseYear, cpu.Price, cpu.AdditionalInfo);
+                }
+            }
+            else
+            {
+                var part = new ComputerPart(
+                    cmbSelectType.Text,
+                    txtBrand.Text,
+                    txtModel.Text,
+                    txtRelYear.Text,
+                    txtPrice.Text,
+                    txtAddInfo.Text
+                );
+
+                parts.Add(part);
+                dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
+            }
+
+            // очищення UI
             cmbSelectType.SelectedIndex = -1;
             txtBrand.Clear();
             txtModel.Clear();
             txtRelYear.Clear();
             txtPrice.Clear();
             txtAddInfo.Clear();
-
             btnEnter.Enabled = false;
         }
 
@@ -306,5 +330,28 @@ namespace LW1._03
                 dgv1.Rows.Add(part.Type, part.Brand, part.Model, part.ReleaseYear, part.Price, part.AdditionalInfo);
             }
         }
+
+        private void dgv1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgv1.CurrentRow == null) return;
+
+            int index = dgv1.CurrentRow.Index;
+            if (index >= parts.Count) return;
+
+            var part = parts[index];
+
+            dgv2.Rows.Clear();
+            dgv2.Columns.Clear();
+
+            if (part is CPU cpu)
+            {
+                dgv2.Columns.Add("Prop", "Property");
+                dgv2.Columns.Add("Val", "Value");
+
+                dgv2.Rows.Add("CPU Cores", cpu.Cores);
+                dgv2.Rows.Add("Frequency (GHz)", cpu.FrequencyGHz);
+            }
+        }
+
     }
 }

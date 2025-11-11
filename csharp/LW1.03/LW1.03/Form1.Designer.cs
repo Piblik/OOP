@@ -69,9 +69,12 @@
             txtSearchLine = new TextBox();
             btnSearch = new Button();
             btnShowAll = new Button();
+            dgv2 = new DataGridView();
+            dgv1.SelectionChanged += dgv1_SelectionChanged;
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
             cmsDgv1.SuspendLayout();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv2).BeginInit();
             SuspendLayout();
             // 
             // cmbSelectType
@@ -286,7 +289,7 @@
             // btnEnter
             // 
             btnEnter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEnter.Location = new Point(23, 213);
+            btnEnter.Location = new Point(22, 198);
             btnEnter.Name = "btnEnter";
             btnEnter.Size = new Size(75, 23);
             btnEnter.TabIndex = 13;
@@ -393,11 +396,20 @@
             btnShowAll.UseVisualStyleBackColor = true;
             btnShowAll.Click += btnShowAll_Click;
             // 
+            // dgv2
+            // 
+            dgv2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv2.Location = new Point(325, 237);
+            dgv2.Name = "dgv2";
+            dgv2.Size = new Size(649, 150);
+            dgv2.TabIndex = 18;
+            // 
             // LW1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(986, 243);
+            ClientSize = new Size(986, 396);
+            Controls.Add(dgv2);
             Controls.Add(btnShowAll);
             Controls.Add(btnSearch);
             Controls.Add(txtSearchLine);
@@ -425,6 +437,7 @@
             cmsDgv1.ResumeLayout(false);
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -471,5 +484,6 @@
         private TextBox txtSearchLine;
         private Button btnSearch;
         private Button btnShowAll;
+        private DataGridView dgv2;
     }
 }
